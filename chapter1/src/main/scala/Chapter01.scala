@@ -114,6 +114,8 @@ object Chapter01 {
       *  take(n) returns the first n characters of a string, while takeRight(n) returns the last n characters of a
       *  string. drop(n) returns the original string minus its n first characters, while dropRight(n) returns the
       *  original string without its last n characters.
+      *  Advantage over substring method is that you do not need to know exactly the length of string. One can substring
+      *  a string of arbitrary length very easily.
       */
 
 }
