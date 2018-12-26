@@ -59,7 +59,16 @@ object Chapter03 {
   /**
     *  Exercice 6
     *
-    *
+    *  scala> val A = Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+    *  A: Array[Int] = Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+    *  scala> A.reverse
+    *  res0: Array[Int] = Array(9, 8, 7, 6, 5, 4, 3, 2, 1, 0)
+    *  scala> import scala.collection.mutable.ArrayBuffer
+    *  import scala.collection.mutable.ArrayBuffer
+    *  scala> val B = ArrayBuffer(1, 7, 2, 9)
+    *  B: scala.collection.mutable.ArrayBuffer[Int] = ArrayBuffer(1, 7, 2, 9)
+    *  scala> B.reverse
+    *  res1: scala.collection.mutable.ArrayBuffer[Int] = ArrayBuffer(9, 2, 7, 1)
     */
 
   /**
