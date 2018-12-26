@@ -44,7 +44,17 @@ object Chapter03 {
   /**
     *  Exercice 4
     *
-    *
+    *  scala> val A: Array[Int] = Array(1, 2, 3, 0, -1, 4, 5, -2, 0)
+    *  A: Array[Int] = Array(1, 2, 3, 0, -1, 4, 5, -2, 0)
+    *  scala> val D = ArrayBuffer[Int]()
+    *  D: scala.collection.mutable.ArrayBuffer[Int] = ArrayBuffer()
+    *  scala> var B = for(i <- 0 until A.length; from = if(A(i) < 0) i else {D.append(A(i)); -1}) yield from
+    *  B: scala.collection.immutable.IndexedSeq[Int] = Vector(-1, -1, -1, -1, 4, -1, -1, 7, -1)
+    *  scala> B = B.filter(elem => elem > 0).sorted
+    *  B: scala.collection.immutable.IndexedSeq[Int] = Vector(4, 7)
+    *  scala> for( elem <- B) D.append(A(elem))
+    *  scala> D
+    *  res0: scala.collection.mutable.ArrayBuffer[Int] = ArrayBuffer(1, 2, 3, 0, 4, 5, 0, -1, -2)
     */
 
   /**
@@ -83,6 +93,19 @@ object Chapter03 {
   /**
     *  Exercice 8
     *
+    *  scala> import scala.collection.mutable.ArrayBuffer
+    *  import scala.collection.mutable.ArrayBuffer
+    *  scala> val A: ArrayBuffer[Int] = ArrayBuffer(1, 2, 3, 0, -1, 4, 5, -2, 0, -4, -8)
+    *  A: scala.collection.mutable.ArrayBuffer[Int] = ArrayBuffer(1, 2, 3, 0, -1, 4, 5, -2, 0, -4, -8)
+    *  scala> var B = A.zipWithIndex.collect{case(elem, i) if elem < 0 => i}
+    *  B: scala.collection.mutable.ArrayBuffer[Int] = ArrayBuffer(4, 7, 9, 10)
+    *  scala> B = B.drop(1)
+    *  B: scala.collection.mutable.ArrayBuffer[Int] = ArrayBuffer(7, 9, 10)
+    *  scala> B = B.reverse
+    *  B: scala.collection.mutable.ArrayBuffer[Int] = ArrayBuffer(10, 9, 7)
+    *  scala> for (index <- B) A.remove(index)
+    *  scala> A
+    *  res0: scala.collection.mutable.ArrayBuffer[Int] = ArrayBuffer(1, 2, 3, 0, -1, 4, 5, 0)
     */
 
   /**
