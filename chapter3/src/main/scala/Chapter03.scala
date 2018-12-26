@@ -29,7 +29,16 @@ object Chapter03 {
   /**
     *  Exercice 3
     *
-    *  scala>
+    *  scala> val rang = 0 until 10
+    *  rang: scala.collection.immutable.Range = Range(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+    *  scala> val a = rang.toArray
+    *  a Array[Int] = Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+    *  scala> val b = for (i <- 0 until a.length; from = if (i % 2 == 0) a(i + 1) else a(i - 1)) yield from
+    *  b: scala.collection.immutable.IndexedSeq[Int] = Vector(1, 0, 3, 2, 5, 4, 7, 6, 9, 8)
+    *  scala> val c = b.toArray
+    *  c: Array[Int] = Array(1, 0, 3, 2, 5, 4, 7, 6, 9, 8)
+    *
+    *
     */
 
   /**
@@ -41,7 +50,10 @@ object Chapter03 {
   /**
     *  Exercice 5
     *
-    *
+    *  scala> val a = Array(1.0, 2.0, 3.0)
+    *  a: Array[Double] = Array(1.0, 2.0, 3.0)
+    *  scala> val mean: Double = a.sum / a.size
+    *  mean: Double = 2.0
     */
 
   /**
