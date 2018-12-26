@@ -74,19 +74,23 @@ object Chapter03 {
   /**
     *  Exercice 7
     *
-    *
+    *  scala> val A = Array(0, 1, 2, 2, 3, 4, 4, 4, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 9)
+    *  A: Array[Int] = Array(0, 1, 2, 2, 3, 4, 4, 4, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 8, 9)
+    *  scala> A.distinct
+    *  res0: Array[Int] = Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
     */
 
   /**
     *  Exercice 8
-    *
     *
     */
 
   /**
     *  Exercice 9
     *
-    *
+    *  import java.util.TimeZone._
+    *  val TZs = TimeZone.getAvailableIDs.filter( zone => zone.contains("America/")).map(zone => zone.replace("America/", "")).sorted
+    *  TZS: Array[String] = Array(Adak, Anchorage, ...)
     */
 
   /**
