@@ -96,7 +96,14 @@ object Chapter03 {
   /**
     *  Exercice 10
     *
-    *
+    *  scala> import scala.collection.JavaConverters._
+    *  import scala.collection.JavaConverters._
+    *  scala> import java.awt.datatransfer._
+    *  import java.awt.datatransfer._
+    *  scala> val flavors = SystemFlavorMap.getDefaultFlavorMap().asInstanceOf[SystemFlavorMap]
+    *  flavors: java.awt.datatransfer.SystemFlavorMap = java.awt.datatransfer.SystemFlavorMap@1a19604
+    *  scala> val scalaStuff = flavors.getNativesForFlavor(DataFlavor.imageFlavor).asScala
+    *  scalaStuff: scala.collection.mutable.Buffer[String] = Buffer(PNG, JFIF, DIB, ENHMETAFILE, METAFILEPICT)
     */
 
 }
