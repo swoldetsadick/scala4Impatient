@@ -11,3 +11,6 @@ My solutions to the exercises from the excellent [Scala for the Impatient book](
 7. [Packages and Imports]()
 8. [Inheritance]()
 9. [Files and Regular Expressions]()
+10. [Traits]()
+11. [Operators]()
+12. [Higher-order functions]()
