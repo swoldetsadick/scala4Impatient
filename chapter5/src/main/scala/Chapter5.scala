@@ -35,12 +35,20 @@ object Chapter5 {
     myOtherCounter.increment()
     println(myCounter.isLess(myOtherCounter))
 
-    val tona = new Wife
+    val tona = new Wife("tona")
     println(tona.getLevel)
     tona.setLevel("unmatchable 10")
     println(tona.getLevel)
     tona.level = "wow"
     println(tona.level)
+    println(tona.getName)
+
+    val samuel = new Vip // Uses primary constructor
+    val toni = new Vip("Tona") // Uses first auxiliary constructor
+    val roni = new Vip("Roni", 39) // Uses second auxiliary constructor
+
+    val h = new LearningScala("Scala for the impatient", 120)
+    println(h.description)
   }
 
   class Counter {
@@ -57,8 +65,31 @@ object Chapter5 {
     def isLess(other: Counter) = value < other.value  // Can access private field of other object
   }
 
-  class Wife {
-    @BeanProperty var level: String = "smoking hot"
+  class Wife(@BeanProperty var name: String) {
+    @BeanProperty var level: String = "smoking hot" // Java style getter and setter by default
+  }
+
+  class Vip {
+
+    // Properties
+    private var name = ""
+    private var age = 0
+
+    // Constructors
+    def this(name: String) { // An auxiliary constructor
+      this() // Calls primary constructor
+      this.name = name
+    }
+
+    def this(name: String, age: Int) { // Another auxiliary constructor
+      this(name) // Calls previous auxiliary constructor
+      this.age = age
+    }
+  }
+
+  class LearningScala(val book: String, @BeanProperty val time: Int) {
+    println("Learning more Scala now.")
+    def description = "Reading " + book + " in " + time + " hours."
   }
 
 }
