@@ -42,17 +42,32 @@ object Chapter05 {
 
     // Exercise 5
     val myStudent = new Student
-    myStudent.setName("Bo Li")
+    myStudent.setName("Bo LI")
     myStudent.setId(421596)
     println( "My student %s has q-number id %d.".format(myStudent.getName, myStudent.getId))
     // scala get set and get set java type for each field
     // Yes one can call javaBeans getters and setters, and one should.
 
     // Exercise 6
+    val fred: Person = new Person(21)
+    val valery: Person = new Person(-21)
+    println(fred.age)
+    println(valery.age)
 
     // Exercise 7
+    val myFavStudent = new Person1("Bo LI")
+    println(myFavStudent.getFirstName)
+    println(myFavStudent.getLastName)
 
     // Exercise 8
+    val myCar = new Car("VW", "Sharan")
+    val yourCar = new Car("BMW", "G20", 1920)
+    val theirCar = new Car("VW", "Sharan", 1920, "GH34567")
+    myCar.setLicensePlate("GH34587")
+    println(myCar.getManufacturer)
+    println(myCar.getModelName)
+    println(myCar.getModelYear)
+    println(myCar.getLicensePlate)
 
     // Exercise 9
 
@@ -164,13 +179,39 @@ object Chapter05 {
     * Exercise 6
     */
 
+  class Person(var age: Int) {
+    if(age < 0) age = 0
+  }
+
   /**
     * Exercise 7
     */
 
+  class Person1(var fullname: String) {
+
+    // Properties
+    private var firstName: String = fullname.split(" ")(0)
+    private var lastName: String = fullname.split(" ")(1)
+
+    // Methods
+    def getFirstName = firstName
+    def getLastName = lastName
+  }
+
   /**
     * Exercise 8
     */
+  class Car(private var manufacturer: String,
+            private var modelName: String,
+            private var modelYear: Int = -1,
+            @BeanProperty var licensePlate: String = "") {
+
+    // Methods
+    def getManufacturer = manufacturer
+    def getModelName = modelName
+    def getModelYear = modelYear
+
+  }
 
   /**
     * Exercise 9
@@ -179,5 +220,10 @@ object Chapter05 {
   /**
     * Exercise 10
     */
+
+  class Employee10 {
+    val name: String = "John Q. Public"  // No need to change name
+    var salary: Double = 0.0  // Salary changes all the time
+  }
 
 }
